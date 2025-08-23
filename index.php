@@ -48,11 +48,11 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
           <a class="nav-link active" aria-current="page" href="index.php">Página Inicial</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="#">Agenda</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            Trabalhos 
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#">Action</a></li>
