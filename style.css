@@ -1,0 +1,24 @@
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0px;
+      text-align: center;
+    }
+
+.texto{
+    margin: 30px;
+}
+
+.horario {
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+.ocupado {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+.livre {
+      background-color: #d4edda;
+      color: #155724;
+    }
