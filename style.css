@@ -1,9 +1,16 @@
-/* =======================
-   Estilo Carvalho Serviços
-   Paleta: Natural & Rústica
-   ======================= */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fff !important;
+  background: url('logo.png') no-repeat left center;
+  background-size: 40px 40px; 
+  padding-left: 50px;
+}
 
-/* Cores */
+
 :root {
   --marrom: #4B2E1E;
   --bege: #E6D5B8;
@@ -11,7 +18,7 @@
   --preto: #1C1C1C;
 }
 
-/* Corpo do site */
+
 body {
   font-family: Arial, sans-serif;
   background-color: var(--bege);
@@ -45,7 +52,6 @@ body {
   color: #fff;
 }
 
-/* Títulos */
 h1, h2 {
   color: var(--marrom);
   margin-top: 20px;
