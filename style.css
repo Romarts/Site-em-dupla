@@ -1,24 +1,121 @@
- body {
-      font-family: Arial, sans-serif;
-      margin: 0px;
-      text-align: center;
-    }
+/* =======================
+   Estilo Carvalho Serviços
+   Paleta: Natural & Rústica
+   ======================= */
 
-.texto{
-    margin: 30px;
+/* Cores */
+:root {
+  --marrom: #4B2E1E;
+  --bege: #E6D5B8;
+  --verde: #556B2F;
+  --preto: #1C1C1C;
 }
 
+/* Corpo do site */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bege);
+  color: var(--preto);
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--marrom) !important;
+}
+
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+  color: var(--verde) !important;
+}
+
+.navbar .btn {
+  border-color: var(--verde);
+  color: var(--verde);
+}
+
+.navbar .btn:hover {
+  background-color: var(--verde);
+  color: #fff;
+}
+
+/* Títulos */
+h1, h2 {
+  color: var(--marrom);
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Formulário */
+form {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+}
+
+form label {
+  font-weight: bold;
+  color: var(--marrom);
+}
+
+form input, 
+form select {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 15px 0;
+  border: 1px solid var(--marrom);
+  border-radius: 5px;
+}
+
+form button {
+  background-color: var(--verde);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #3e4f23;
+}
+
+/* Horários */
 .horario {
-      padding: 10px;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-.ocupado {
-      background-color: #f8d7da;
-      color: #721c24;
-    }
-.livre {
-      background-color: #d4edda;
-      color: #155724;
-    }
+  padding: 10px;
+  margin: 5px auto;
+  max-width: 400px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.horario.livre {
+  background-color: #d9f2d9;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+}
+
+.horario.ocupado {
+  background-color: #f2d9d9;
+  color: #a33;
+  border: 1px solid #a33;
+}
+
+/* Carrossel */
+.carousel img {
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
