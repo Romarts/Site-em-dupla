@@ -175,6 +175,7 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
           <a href="#"><i class="bi bi-instagram"></i></a>
           <a href="https://wa.me/5544999797283?text=Olá%20gostaria%20de%20fazer%20um%20agendamento!" target="_blank">
   <i class="bi bi-whatsapp"></i>
+  <!-- MUDAR NUMERO DO CONTATO --> 
 </a>
 
         </div>
