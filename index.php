@@ -135,6 +135,45 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
 
 </div>
 
+<!-- Footer -->
+<footer class="footer mt-5 py-4">
+  <div class="container">
+    <div class="row text-center text-md-start">
+      <!-- Coluna 1 -->
+      <div class="col-md-4 mb-3">
+        <h5>Carvalho Serviços</h5>
+        <p>Especialistas em pergolados, decks e serviços em madeira de qualidade.</p>
+      </div>
+
+      <!-- Coluna 2 -->
+      <div class="col-md-4 mb-3">
+        <h5>Links Rápidos</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.php">Página Inicial</a></li>
+          <li><a href="#">Agenda</a></li>
+          <li><a href="#">Trabalhos</a></li>
+        </ul>
+      </div>
+
+      <!-- Coluna 3 -->
+      <div class="col-md-4 mb-3">
+        <h5>Contato</h5>
+        <p><i class="bi bi-telephone"></i> (11) 99999-9999</p>
+        <p><i class="bi bi-envelope"></i> contato@carvalhoservicos.com</p>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="text-center mt-3">
+      <p class="mb-0">&copy; <?= date("Y") ?> Carvalho Serviços - Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
