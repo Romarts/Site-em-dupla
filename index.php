@@ -9,6 +9,7 @@ $horarios = [
 
 // Simula banco de dados (arquivo texto)
 $arquivo = "agendamentos.txt";
+$sucesso = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'] ?? '';
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($nome && $horario) {
         file_put_contents($arquivo, "$horario - $nome\n", FILE_APPEND);
+        $sucesso = true;
     }
 }
 
@@ -98,6 +100,14 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
 
   <!-- Formulário -->
   <h2>Agendamento de Pergolados</h2>
+  
+  <?php if ($sucesso): ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <i class="bi bi-check-circle-fill"></i> Seu horário foi agendado com sucesso!
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+    </div>
+  <?php endif; ?>
+
   <div class="card shadow p-4 mb-5">
     <form method="POST">
       <div class="mb-3">
