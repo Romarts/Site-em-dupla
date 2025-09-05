@@ -1,7 +1,6 @@
 <?php
 // agenda.php - Simples sistema de agendamento para carpinteiros
 
-
 // Horários disponíveis (simulação)
 $horarios = [
     "08:00", "09:00", "10:00", "11:00",
@@ -25,105 +24,117 @@ $agendados = file_exists($arquivo) ? file($arquivo, FILE_IGNORE_NEW_LINES) : [];
 $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendados);
 ?>
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>Carvalho Serviços</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.php">Carvalho Serviços Madeiras</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Página Inicial</a>
+          <a class="nav-link active" href="index.php">Página Inicial</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Agenda</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
             Trabalhos 
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Pergolados</a></li>
+            <li><a class="dropdown-item" href="#">Decks</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Mais serviços</a></li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Buscar">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
     </div>
   </div>
 </nav>
-  <div class="texto">
-    <h1> Carvalho Serviços em Madeiras</h1>
 
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="..." class="d-block w-100" alt="...">
+<div class="container my-5">
+
+  <h1>Carvalho Serviços em Madeiras</h1>
+
+  <!-- Carrossel -->
+  <div id="carouselExampleInterval" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000">
+        <img src="img/carpintaria1.jpg" class="d-block w-100" alt="Trabalho 1">
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="img/carpintaria2.jpg" class="d-block w-100" alt="Trabalho 2">
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="img/carpintaria3.jpg" class="d-block w-100" alt="Trabalho 3">
+      </div>
     </div>
-    <div class="carousel-item" data-bs-interval="5000">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item" data-bs-interval="5000">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
+  <!-- Formulário -->
   <h2>Agendamento de Pergolados</h2>
+  <div class="card shadow p-4 mb-5">
+    <form method="POST">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Seu nome</label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="bi bi-person"></i></span>
+          <input type="text" id="nome" name="nome" class="form-control" placeholder="Digite seu nome" required>
+        </div>
+      </div>
 
-  <form method="POST">
-    <label for="nome">Seu nome:</label><br>
-    <input type="text" id="nome" name="nome" required><br><br>
+      <div class="mb-3">
+        <label for="horario" class="form-label">Escolha um horário</label>
+        <select id="horario" name="horario" class="form-select" required>
+          <?php foreach ($horarios as $h): ?>
+            <option value="<?= $h ?>" <?= in_array($h, $horarios_ocupados) ? 'disabled' : '' ?>>
+              <?= $h ?> <?= in_array($h, $horarios_ocupados) ? '(Indisponível)' : '(Disponível)' ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+      </div>
 
-    <label for="horario">Escolha um horário:</label><br>
-    <select id="horario" name="horario" required>
-      <?php foreach ($horarios as $h): ?>
-        <?php if (!in_array($h, $horarios_ocupados)): ?>
-          <option value="<?= $h ?>"><?= $h ?></option>
-        <?php endif; ?>
-      <?php endforeach; ?>
-    </select><br><br>
+      <button type="submit" class="btn btn-success w-100">Agendar</button>
+    </form>
+  </div>
 
-    <button type="submit">Agendar</button>
-  </form>
-
+  <!-- Horários -->
   <h2>Horários</h2>
-  <?php foreach ($horarios as $h): ?>
-    <div class="horario <?= in_array($h, $horarios_ocupados) ? 'ocupado' : 'livre' ?>">
-      <?= $h ?> - <?= in_array($h, $horarios_ocupados) ? 'Indisponível' : 'Disponível' ?>
-    </div>
-  <?php endforeach; ?>
+  <div class="horarios-grid">
+    <?php foreach ($horarios as $h): ?>
+      <div class="horario <?= in_array($h, $horarios_ocupados) ? 'ocupado' : 'livre' ?>">
+        <?= $h ?> - <?= in_array($h, $horarios_ocupados) ? 'Indisponível' : 'Disponível' ?>
+      </div>
+    <?php endforeach; ?>
+  </div>
 
 </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

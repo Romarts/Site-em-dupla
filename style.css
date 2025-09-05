@@ -5,11 +5,10 @@
   font-size: 1.3rem;
   font-weight: bold;
   color: #fff !important;
-  background: url('logo.img/logo\ site\ em\ dupla\ \(2\).png') no-repeat left center;
+  background: url('logo.img/logo site em dupla (2).png') no-repeat left center;
   background-size: 40px 40px; 
   padding-left: 50px;
 }
-
 
 :root {
   --marrom: #4B2E1E;
@@ -17,7 +16,6 @@
   --verde: #556B2F;
   --preto: #1C1C1C;
 }
-
 
 body {
   font-family: Arial, sans-serif;
@@ -30,6 +28,7 @@ body {
 /* Navbar */
 .navbar {
   background-color: var(--marrom) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .navbar .navbar-brand,
@@ -39,7 +38,9 @@ body {
 }
 
 .navbar .nav-link:hover {
-  color: var(--verde) !important;
+  color: var(--bege) !important;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .navbar .btn {
@@ -52,6 +53,7 @@ body {
   color: #fff;
 }
 
+/* Títulos */
 h1, h2 {
   color: var(--marrom);
   margin-top: 20px;
@@ -60,48 +62,36 @@ h1, h2 {
 }
 
 /* Formulário */
-form {
-  background: #fff;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 500px;
-  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
-}
-
-form label {
-  font-weight: bold;
-  color: var(--marrom);
-}
-
-form input, 
-form select {
-  width: 100%;
-  padding: 8px;
-  margin: 8px 0 15px 0;
-  border: 1px solid var(--marrom);
-  border-radius: 5px;
+form input:focus, 
+form select:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 5px rgba(85, 107, 47, 0.5);
+  outline: none;
 }
 
 form button {
-  background-color: var(--verde);
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  background: linear-gradient(135deg, var(--verde), #3e4f23);
+  transition: 0.3s;
   font-weight: bold;
+  border: none;
 }
 
 form button:hover {
-  background-color: #3e4f23;
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* Horários */
+.horarios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
 .horario {
   padding: 10px;
-  margin: 5px auto;
-  max-width: 400px;
   border-radius: 6px;
   font-weight: bold;
   text-align: center;
@@ -121,7 +111,15 @@ form button:hover {
 
 /* Carrossel */
 .carousel img {
-  height: 400px;
+  height: 450px;
   object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
   border-radius: 10px;
 }
