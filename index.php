@@ -79,10 +79,10 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
   <div id="carouselExampleInterval" class="carousel slide mb-5" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="3000">
-        <img src="img/carpintaria1.jpg" class="d-block w-100" alt="Trabalho 1">
+        <img src="fotos/IMG-20250909-WA0032.jpg" class="d-block w-100" alt="Trabalho 1">
       </div>
       <div class="carousel-item" data-bs-interval="3000">
-        <img src="img/carpintaria2.jpg" class="d-block w-100" alt="Trabalho 2">
+        <img src="" class="d-block w-100" alt="Trabalho 2">
       </div>
       <div class="carousel-item" data-bs-interval="3000">
         <img src="img/carpintaria3.jpg" class="d-block w-100" alt="Trabalho 3">
