@@ -31,6 +31,7 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
   <meta charset="UTF-8">
   <title>Carvalho Serviços</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="icon" href="logo.img/Logo.png" type="icone" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
@@ -63,10 +64,6 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
           </ul>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -79,13 +76,13 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
   <div id="carouselExampleInterval" class="carousel slide mb-5" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="3000">
-        <img src="fotos/IMG-20250909-WA0032.jpg" class="d-block w-100" alt="Trabalho 1">
+        <img src="fotos/foto1.jpg" class="d-block w-100" alt="Trabalho 1">
       </div>
       <div class="carousel-item" data-bs-interval="3000">
-        <img src="" class="d-block w-100" alt="Trabalho 2">
+        <img src="fotos/foto2.jpg" class="d-block w-100" alt="Trabalho 2">
       </div>
       <div class="carousel-item" data-bs-interval="3000">
-        <img src="img/carpintaria3.jpg" class="d-block w-100" alt="Trabalho 3">
+        <img src="fotos/foto3.jpg" class="d-block w-100" alt="Trabalho 3">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -168,12 +165,13 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
       <!-- Coluna 3 -->
       <div class="col-md-4 mb-3">
         <h5>Contato</h5>
-        <p><i class="bi bi-telephone"></i> (11) 99999-9999</p>
+        <p><i class="bi bi-telephone"></i> (44) 99856-2423</p>
         <p><i class="bi bi-envelope"></i> contato@carvalhoservicos.com</p>
         <div class="social-icons">
           <a href="#"><i class="bi bi-facebook"></i></a>
-          <a href="#"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/5544999797283?text=Olá%20gostaria%20de%20fazer%20um%20agendamento!" target="_blank">
+          <a href="https://www.instagram.com/carvalho_servico.em.madeiras/?theme=dark" target="_blank">
+          <i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/554498562423?text=Olá%20gostaria%20de%20fazer%20um%20agendamento!" target="_blank">
   <i class="bi bi-whatsapp"></i>
   <!-- MUDAR NUMERO DO CONTATO --> 
 </a>

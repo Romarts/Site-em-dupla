@@ -1,3 +1,4 @@
+
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -5,21 +6,20 @@
   font-size: 1.3rem;
   font-weight: bold;
   color: #fff !important;
-  background: url('logo.img/logo site em dupla (2).png') no-repeat left center;
+  background: url('logo.img/Logo.png') no-repeat left center;
   background-size: 40px 40px; 
   padding-left: 50px;
 }
 
 :root {
-  --marrom: #4B2E1E;
-  --bege: #E6D5B8;
+  --preto: #000000;
+  --branco: #f0eeee;
   --verde: #556B2F;
-  --preto: #1C1C1C;
 }
 
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--bege);
+  background-color: var(--branco);
   color: var(--preto);
   margin: 0;
   padding: 0;
@@ -27,7 +27,7 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: var(--marrom) !important;
+  background-color: var(--preto) !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 .navbar .nav-link:hover {
-  color: var(--bege) !important;
+  color: var(--branco) !important;
   transform: scale(1.05);
   transition: 0.3s;
 }
@@ -55,7 +55,7 @@ body {
 
 /* Títulos */
 h1, h2 {
-  color: var(--marrom);
+  color: var(--preto);
   margin-top: 20px;
   text-align: center;
   font-weight: bold;
@@ -126,12 +126,12 @@ form button:hover {
 
 /* Footer */
 .footer {
-  background-color: var(--marrom);
+  background-color: var(--preto);
   color: #fff;
 }
 
 .footer h5 {
-  color: var(--bege);
+  color: var(--branco);
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -142,7 +142,7 @@ form button:hover {
 }
 
 .footer a:hover {
-  color: var(--bege);
+  color: var(--branco);
   text-decoration: underline;
 }
 
