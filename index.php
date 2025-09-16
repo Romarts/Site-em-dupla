@@ -166,14 +166,13 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
       <div class="col-md-4 mb-3">
         <h5>Contato</h5>
         <p><i class="bi bi-telephone"></i> (44) 99856-2423</p>
-        <p><i class="bi bi-envelope"></i> contato@carvalhoservicos.com</p>
+        <p><i class="bi bi-envelope"></i> carvalhoservicos@gmail.com</p>
         <div class="social-icons">
-          <a href="#"><i class="bi bi-facebook"></i></a>
           <a href="https://www.instagram.com/carvalho_servico.em.madeiras/?theme=dark" target="_blank">
           <i class="bi bi-instagram"></i></a>
           <a href="https://wa.me/554498562423?text=Olá%20gostaria%20de%20fazer%20um%20agendamento!" target="_blank">
   <i class="bi bi-whatsapp"></i>
-  <!-- MUDAR NUMERO DO CONTATO --> 
+  
 </a>
 
         </div>
