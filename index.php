@@ -11,12 +11,36 @@ $horarios = [
 $arquivo = "agendamentos.txt";
 $sucesso = false;
 
+// Lista fixa de serviços
+$servicos = [
+    "Pergolado",
+    "Deck de Madeira",
+    "Mesa Rústica",
+    "Porta Sob Medida"
+];
+
+// Cancelamento de agendamento
+if (isset($_GET['cancelar'])) {
+    $idCancelar = (int) $_GET['cancelar'];
+    if (file_exists($arquivo)) {
+        $linhas = file($arquivo, FILE_IGNORE_NEW_LINES);
+        if (isset($linhas[$idCancelar])) {
+            unset($linhas[$idCancelar]);
+            file_put_contents($arquivo, implode("\n", $linhas));
+        }
+    }
+    header("Location: agenda.php"); // redireciona após cancelar
+    exit;
+}
+
+// Agendamento novo
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'] ?? '';
     $horario = $_POST['horario'] ?? '';
-    
-    if ($nome && $horario) {
-        file_put_contents($arquivo, "$horario - $nome\n", FILE_APPEND);
+    $servico = $_POST['servico'] ?? '';
+
+    if ($nome && $horario && $servico) {
+        file_put_contents($arquivo, "$horario - $nome - $servico\n", FILE_APPEND);
         $sucesso = true;
     }
 }
@@ -75,31 +99,8 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
 
   <h1>Carvalho Serviços em Madeiras</h1>
 
-  <!-- Carrossel -->
-  <div id="carouselExampleInterval" class="carousel slide mb-5" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <img src="img/carpintaria1.jpg" class="d-block w-100" alt="Trabalho 1">
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img src="img/carpintaria2.jpg" class="d-block w-100" alt="Trabalho 2">
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <img src="img/carpintaria3.jpg" class="d-block w-100" alt="Trabalho 3">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-      <span class="visually-hidden">Próximo</span>
-    </button>
-  </div>
-
   <!-- Formulário -->
-  <h2>Agendamento de Pergolados</h2>
+  <h2>Agendamento</h2>
   
   <?php if ($sucesso): ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -119,6 +120,16 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
       </div>
 
       <div class="mb-3">
+        <label for="servico" class="form-label">Escolha o serviço</label>
+        <select id="servico" name="servico" class="form-select" required>
+          <option value="">Selecione...</option>
+          <?php foreach ($servicos as $s): ?>
+            <option value="<?= $s ?>"><?= $s ?></option>
+          <?php endforeach; ?>
+        </select>
+      </div>
+
+      <div class="mb-3">
         <label for="horario" class="form-label">Escolha um horário</label>
         <select id="horario" name="horario" class="form-select" required>
           <?php foreach ($horarios as $h): ?>
@@ -134,14 +145,18 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
   </div>
 
   <!-- Horários -->
-  <h2>Horários</h2>
-  <div class="horarios-grid">
-    <?php foreach ($horarios as $h): ?>
-      <div class="horario <?= in_array($h, $horarios_ocupados) ? 'ocupado' : 'livre' ?>">
-        <?= $h ?> - <?= in_array($h, $horarios_ocupados) ? 'Indisponível' : 'Disponível' ?>
-      </div>
+  <h2>Agendamentos Realizados</h2>
+  <ul class="list-group">
+    <?php foreach ($agendados as $index => $linha): ?>
+      <?php list($hora, $nome, $servico) = explode(" - ", $linha); ?>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span><strong><?= $hora ?></strong> - <?= $nome ?> (<?= $servico ?>)</span>
+        <a href="?cancelar=<?= $index ?>" class="btn btn-danger btn-sm">
+          <i class="bi bi-x-circle"></i> Cancelar
+        </a>
+      </li>
     <?php endforeach; ?>
-  </div>
+  </ul>
 
 </div>
 
@@ -149,13 +164,10 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
 <footer class="footer mt-5 py-4">
   <div class="container">
     <div class="row text-center text-md-start">
-      <!-- Coluna 1 -->
       <div class="col-md-4 mb-3">
         <h5>Carvalho Serviços</h5>
         <p>Especialistas em pergolados, decks e serviços em madeira de qualidade.</p>
       </div>
-
-      <!-- Coluna 2 -->
       <div class="col-md-4 mb-3">
         <h5>Links Rápidos</h5>
         <ul class="list-unstyled">
@@ -164,8 +176,6 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
           <li><a href="#">Trabalhos</a></li>
         </ul>
       </div>
-
-      <!-- Coluna 3 -->
       <div class="col-md-4 mb-3">
         <h5>Contato</h5>
         <p><i class="bi bi-telephone"></i> (11) 99999-9999</p>
@@ -174,10 +184,8 @@ $horarios_ocupados = array_map(fn($linha) => explode(" - ", $linha)[0], $agendad
           <a href="#"><i class="bi bi-facebook"></i></a>
           <a href="#"><i class="bi bi-instagram"></i></a>
           <a href="https://wa.me/5544999797283?text=Olá%20gostaria%20de%20fazer%20um%20agendamento!" target="_blank">
-  <i class="bi bi-whatsapp"></i>
-  <!-- MUDAR NUMERO DO CONTATO --> 
-</a>
-
+            <i class="bi bi-whatsapp"></i>
+          </a>
         </div>
       </div>
     </div>
